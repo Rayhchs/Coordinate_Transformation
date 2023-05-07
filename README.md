@@ -77,6 +77,16 @@ Zc\\
     ```
 
 * Arguments
+
+|    Argument    |                                                                                                       Explanation                                                                                                       |
+|:--------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|      Cam_img      | Path to save camera image |
+|    Obs_img   | Path to save observer image |
+|    result   | Path to save result |
+|    Cam_par   | Glulookat parameters of camera |
+|    Obs_par   | Glulookat parameters of observer |
+|    Obj_par   | x, y, z coordinate of object |
+
 |    Argument    |    Explanation    |
 |:--------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |      Cam_img      | Path to save camera image |
