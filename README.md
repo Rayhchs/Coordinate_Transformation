@@ -73,7 +73,7 @@ Zc\\
 * Clone this repo
 
     ```shell script
-    git clone https://github.com/Rayhchs/AugTheFace.git
+    git clone https://github.com/Rayhchs/Coordinate_Transformation.git
     ```
 
 * Arguments
