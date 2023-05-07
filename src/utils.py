@@ -63,7 +63,6 @@ def normalize(v):
 def pixel2world(interparam, Cam_ext, u, v, depth):
 
     K_inv = np.linalg.inv(interparam)
-    t = Cam_ext[3:4, :]
 
     Zc = 1
     Xc = u
