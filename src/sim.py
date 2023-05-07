@@ -4,11 +4,10 @@ from OpenGL.GLU import *
 import numpy as np
 import cv2
 from utils import *
-import random
 
 
 def save_image(filename1, filename2):
-    
+
     # recieve view height, width
     viewport = glGetIntegerv(GL_VIEWPORT)
     width, height = viewport[2], viewport[3]
@@ -35,7 +34,6 @@ def draw_cube(x, y, z):
 
 def draw_rect(P1, P2):
 
-    print(P1, P2)
     glColor3f(1.0, 1.0, 0.0)
     glBegin(GL_LINES)
 
@@ -54,12 +52,13 @@ def draw_rect(P1, P2):
 
 
 class Sim():
-    def __init__(self, Cam, Obs, Obj=None):
+    def __init__(self, Cam, Obs, Obj=None, args=None):
         self.Cam = Cam
         self.Obs = Obs
         self.Obj = Obj
         self.draw_rectangle = False
         self.draw_cube = False
+        self.args = args
 
     def display(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
@@ -99,8 +98,8 @@ class Sim():
 
     def keyboard(self, key, x, y):
         if key == b'd' or key == b'D':
-            save_image("Cam.png", "Obs.png")
-            self.P1_proj_sheld, self.P2_proj_sheld = process(self.Cam, self.Obs, self.Obj)
+            save_image(self.args.Cam_img, self.args.Obs_img)
+            self.P1_proj_sheld, self.P2_proj_sheld = process(self.Cam, self.Obs, self.Obj, self.args)
             self.draw_rectangle = not self.draw_rectangle
             glutPostRedisplay()
         if key == b'c' or key == b'C':

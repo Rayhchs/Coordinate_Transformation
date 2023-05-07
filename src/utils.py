@@ -81,9 +81,12 @@ def pixel2world(interparam, Cam_ext, u, v, depth):
 def world2pixel(interparam, Cam_ext, world_coords):
     return np.dot(np.dot(interparam, Cam_ext), world_coords)
 
-def process(Cam, Obs, Obj):
-    Cam_img = cv2.imread('Cam.png')
-    Obs_img = cv2.imread('Obs.png')
+def process(Cam, Obs, Obj, args):
+
+    Cam_img = cv2.imread(args.Cam_img)
+    Obs_img = cv2.imread(args.Obs_img)
+    assert Cam_img is not None
+    assert Obs_img is not None
 
     # Get bbox
     width = height = 250
@@ -126,6 +129,6 @@ def process(Cam, Obs, Obj):
     # Show Result
     img = cv2.hconcat([Cam_img, Obs_img])
     out_img = cv2.vconcat([ori_img, img])
-    cv2.imwrite('Result.jpg', out_img)
+    cv2.imwrite(args.result, out_img)
 
     return P1_Cam2Wor, P2_Cam2Wor
