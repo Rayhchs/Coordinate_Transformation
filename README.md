@@ -1,6 +1,69 @@
 # Coordinate Transformation
 Coordinate system is critical in the fields of robot and autonomous vehicle. Coordinate transfomration is required for connecting view of cameras. This repo simulates coordinate transformation from pixel to world and world to pixel between two cameras. To simulate it, this repo create two cameras (Cam, Obs) and a object using OpenGL. The intrinsic and extrinsic parameters are transformed from the parameters of glviewport and glulookat. Firstly, the bounding box of object in pixel coordinate of Cam is transformed to world coordinate. Afterward, we transformed it from world coordinate to pixel coordinate of Obs. We can verify the result by comparing transformed coordinate and coordinate in image of Obs.
 
+<img src="https://github.com/Rayhchs/Coordinate_Transformation/blob/main/img/flow.png">
+
+## World2Pixel
+Transformation from world to pixel coordinate is shown as follow:
+
+$$\begin{bmatrix}
+u\\
+v\\
+1\\
+\end{bmatrix}=
+\begin{bmatrix}
+fx&0&u0&0\\
+0&fy&v0&0\\
+0&0&1&0\\
+\end{bmatrix}
+\begin{bmatrix}
+R&T\\
+0&1\\
+\end{bmatrix}
+\begin{bmatrix}
+Xw\\
+Yw\\
+Zw\\
+1\\
+\end{bmatrix}$$
+
+## Pixel2World
+Transformation from pixel to camera coordinate is shown as follow:
+
+$$\begin{bmatrix}
+Xc\\
+Yc\\
+Zc\\
+\end{bmatrix}=
+\begin{bmatrix}
+fx&0&u0\\
+0&fy&v0\\
+0&0&1\\
+\end{bmatrix}^{-1}
+\begin{bmatrix}
+u\\
+v\\
+1\\
+\end{bmatrix}*depth$$
+
+Transformation from camera to world coordinate is shown as follow:
+
+$$\begin{bmatrix}
+Xw\\
+Yw\\
+Zw\\
+\end{bmatrix}=
+\begin{bmatrix}
+R&T\\
+0&1\\
+\end{bmatrix}^{-1}
+\begin{bmatrix}
+Xc\\
+Yc\\
+Zc\\
+1\\
+\end{bmatrix}$$
+
 ## Simulation
 * Requisite
 1. OpenGL
@@ -33,5 +96,6 @@ Coordinate system is critical in the fields of robot and autonomous vehicle. Coo
 2. press 'd' to calculate the transformation of coordinate of bounding box.
 
 ## Result
-Here shows the result of simulation:
+The result of simulation is shown as follow:
+
 <img src="https://github.com/Rayhchs/Coordinate_Transformation/blob/main/result/Result.png">
