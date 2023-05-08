@@ -3,15 +3,15 @@ import cv2
 import math
 
 
-def glViewportToInterParam(width, height):
+def glViewportToInterParam(width, height, fov=45, aspect=1.0):
 
-    # Define fov and principle point
-    fov = 45
-    fx = width / (2 * np.tan(np.deg2rad(fov) / 2))
-    fy = height / (2 * np.tan(np.deg2rad(fov) / 2))
+    # 定義相機內部參數
+    fx = width / (2 * np.tan(np.deg2rad(fov / 2))) / aspect
+    fy = height / (2 * np.tan(np.deg2rad(fov / 2)))
+
     principal_point = np.array([width / 2.0, height / 2.0])
 
-    # Put intrinsic parameter
+    # 計算相機內部參數矩陣
     K = np.array([[fx, 0.0, principal_point[0]],
                   [0.0, fy, principal_point[1]],
                   [0.0, 0.0, 1.0]])
