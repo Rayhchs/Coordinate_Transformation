@@ -98,6 +98,10 @@ Zc\\
 
 ## Result
 The result of simulation is shown as follow:
-The top-left image is captured by Cam. The top-right image is captured by Obs. The bottom-left image shows the bbox of object in Cam image. (0.0, 0.0, 0.0) indicates the coordinate of Cam. The bottom-right image shows the transformed coordinate of bbox. (4.0, 7.0, 0.0) indicates the coordinate of Obs and (4.0, 7.0, -100) means where the Obs looking at. The object of this simulation is at (-1.0, -1.0, -40.0)
 
 <img src="https://github.com/Rayhchs/Coordinate_Transformation/blob/main/result/Result.png">
+
+1. The top-left image is captured by Cam. 
+2. The top-right image is captured by Obs. 
+3. The bottom-left image shows the bbox of object in Cam image. (0.0, 0.0, 0.0) indicates the coordinate of Cam. 
+4. The bottom-right image shows the transformed coordinate of bbox. (4.0, 7.0, 0.0) indicates the coordinate of Obs and (4.0, 7.0, -100) means where the Obs looking at. The object of this simulation is at (-1.0, -1.0, -40.0)
